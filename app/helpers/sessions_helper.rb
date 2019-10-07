@@ -28,6 +28,10 @@ module SessionsHelper
     end
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
   def logged_in?
     !current_user.nil?
   end
@@ -38,5 +42,20 @@ module SessionsHelper
     @current_user = nil
   end
 
+  # 記憶したURL（なければデフォルト値）にリダイレクト
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  def store_location
+    # 設定画面開く→クッキーを削除→update(patch)
+    # このときのリクエスト先はuser_path
+    # user_pathはGETも割り当てられているためこの場合はエラーは起きない
+    # しかしGetを割り当てていないURLだった場合にエラーになる可能性がある
+    # 確実に後でリダイレクトをするにはGetが割り当てられているURLが
+    # リクエストされたときのみにログイン後リダイレクトする動きにしないといけない
+    session[:forwarding_url] = request.original_url if request.get?
+  end
 
 end
