@@ -27,7 +27,7 @@ class User < ApplicationRecord
     # debugger
     digest = send("#{attribute}_digest")
     return false if digest.nil?
-    BCrypt::Password.new(digest).is_password?(token)
+    p BCrypt::Password.new(digest).is_password?(token)
   end
 
   def forget
@@ -42,6 +42,6 @@ private
 
   def create_activation_digest
     self.activation_token = User.new_token
-    self.activation_digest = User.digest(User.new_token)
+    self.activation_digest = User.digest(activation_token)
   end
 end
