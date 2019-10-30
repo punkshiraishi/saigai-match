@@ -58,14 +58,6 @@ class UsersController < ApplicationController
   # ここで関数として定義
   # 上の方で before_action :function のようにシンボルで呼び出して使う
 
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in"
-      redirect_to login_url
-    end
-  end
-
   def correct_user
     # 保護されたページにアクセスする前に
     # URLのパラメータのユーザとセッションのユーザが
