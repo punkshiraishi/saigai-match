@@ -28,4 +28,11 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", edit_user_path(@user)
     assert_select "a[href=?]", logout_path
   end
+
+  test "layout relationships" do
+    log_in_as(@user)
+    get root_path
+    assert_match @user.followers.to_a.count.to_s, response.body
+    assert_match @user.following.to_a.count.to_s, response.body
+  end
 end

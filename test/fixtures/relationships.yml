@@ -1,0 +1,15 @@
+one:
+  follower: michael
+  followed: yuma
+
+two:
+  follower: michael
+  followed: miki
+
+three:
+  follower: yuma
+  followed: michael
+
+four:
+  follower: archer
+  followed: michael
