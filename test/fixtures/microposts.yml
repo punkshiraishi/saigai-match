@@ -1,5 +1,5 @@
 orange:
-  content: "I just ate an orange!"
+  content: "I'm an orange!"
   created_at: <%= 10.minutes.ago %>
   user: michael
 
