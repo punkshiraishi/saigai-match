@@ -1,9 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+@import url('https://fonts.googleapis.com/css?family=Kosugi&display=swap&subset=japanese');
 
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$punk-primary: #cceba1;
+$punk-secondary: #36185e;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -60,16 +64,26 @@ p {
 }
 
 /* header */
-
+.navbar {
+  color: $punk-primary;
+  background-color: $punk-secondary;
+  .navbar-nav > li > a {
+    color: $punk-primary;
+    &:hover {
+      color: $punk-secondary;
+      background-color: $punk-primary;
+    }
+  }
+}
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+  font-size: 1.8em;
+  font-family: 'Kosugi', sans-serif;
+  color: $punk-primary;
+  letter-spacing: 3px;
+  padding-top: 7px;
+  font-weight: normal;
   &:hover {
     color: white;
     text-decoration: none;
