@@ -1,13 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Kosugi&display=swap&subset=japanese');
 
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
-$punk-primary: #cceba1;
-$punk-secondary: #36185e;
+$primary: #cceba1;
+$primary-high: #8fd331;
+$primary-dark: #a1ae8d;
+$secondary: #36185e;
+$secondary-light: #ab84e0;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -16,9 +19,16 @@ $punk-secondary: #36185e;
 }
 
 /*universal*/
+$theme-colors: (
+  primary: red,
+  main: #222 /* デフォルトにないカラーの追加 */
+);
 
 body {
   padding-top: 60px;
+  background-color: $primary;
+  color: $secondary;
+  font-family: 'Noto Sans', 'Kosugi', sans-serif;
 }
 
 section {
@@ -27,12 +37,23 @@ section {
 
 textarea {
   resize: vertical;
+  background-color: $primary
 }
 
 .center {
   text-align: center;
   h1 {
     margin-bottom: 10px
+  }
+}
+
+.btn {
+  background-color: $secondary;
+  color: $primary;
+  border-color: none;
+  &:hover {
+    background-color: $secondary;
+    color: $primary
   }
 }
 
@@ -65,13 +86,13 @@ p {
 
 /* header */
 .navbar {
-  color: $punk-primary;
-  background-color: $punk-secondary;
+  color: $primary;
+  background-color: $secondary;
   .navbar-nav > li > a {
-    color: $punk-primary;
+    color: $primary;
     &:hover {
-      color: $punk-secondary;
-      background-color: $punk-primary;
+      color: $secondary;
+      background-color: $primary;
     }
   }
 }
@@ -80,13 +101,20 @@ p {
   margin-right: 10px;
   font-size: 1.8em;
   font-family: 'Kosugi', sans-serif;
-  color: $punk-primary;
+  color: $primary;
   letter-spacing: 3px;
   padding-top: 7px;
   font-weight: normal;
   &:hover {
     color: white;
     text-decoration: none;
+  }
+}
+
+.dropdown-menu {
+  background-color: $primary;
+  > li > a {
+    color: $secondary;
   }
 }
 
