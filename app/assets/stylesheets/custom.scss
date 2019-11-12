@@ -70,6 +70,10 @@ h1 {
   text-align: center;
 }
 
+.h1-logo {
+  letter-spacing: 3px;
+}
+
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
@@ -86,8 +90,10 @@ p {
 
 /* header */
 .navbar {
+  //background: url("logo.png") no-repeat center center;
   color: $primary;
   background-color: $secondary;
+  //background-size: contain;
   .navbar-nav > li > a {
     color: $primary;
     &:hover {
@@ -110,6 +116,13 @@ p {
     text-decoration: none;
   }
 }
+
+.logo-img {
+  float: left;
+  padding-top: 7px;
+  height: 43px;
+}
+
 
 .dropdown-menu {
   background-color: $primary;
