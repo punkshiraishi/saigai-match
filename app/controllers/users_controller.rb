@@ -11,6 +11,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @hash = Gmaps4rails.build_markers(@microposts) do |micropost, marker|
+      marker.lat micropost.latitude
+      marker.lng micropost.longitude
+      marker.json({ title: micropost.content
+                    picture: { url: gravatar_url, width: 32, height: 32 } })
+    end
     redirect_to root_url and return unless @user.activated?
   end
 

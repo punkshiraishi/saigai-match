@@ -27,3 +27,6 @@
 
 # アップロードされたテスト画像を無視する
 /public/uploads
+
+# Ignore dot_env file
+/.env

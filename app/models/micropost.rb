@@ -5,6 +5,8 @@ class Micropost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validate :picture_size
+  geocoded_by :address
+  after_validation :geocode
 
   private
 

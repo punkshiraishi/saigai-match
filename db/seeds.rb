@@ -30,7 +30,12 @@ end
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content) }
+  longitude = rand(138.0..140.0).to_s
+  latitude = rand(35.0..36.0).to_s
+  # latitude = Faker::Address.latitude
+  # longitude = Faker::Address.longitude
+
+  users.each { |user| user.microposts.create!(content: content, latitude: latitude, longitude: longitude) }
 end
 
 # リレーションシップ
