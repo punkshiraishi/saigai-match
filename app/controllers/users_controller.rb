@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include Gmap
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user, only: [:edit, :update]
   before_action :non_test_user, only: [:edit, :update]
@@ -11,12 +12,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
-    @hash = Gmaps4rails.build_markers(@microposts) do |micropost, marker|
-      marker.lat micropost.latitude
-      marker.lng micropost.longitude
-      # marker.json({ title: micropost.content,
-      #               picture: { url: gravatar_url, width: 32, height: 32 } })
-    end
+    @hash = build_markers(@microposts)
     redirect_to root_url and return unless @user.activated?
   end
 
