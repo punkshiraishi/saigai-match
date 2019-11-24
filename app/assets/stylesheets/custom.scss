@@ -325,6 +325,31 @@ input {
     margin-right: 10px;
     margin-top: 5px;
   }
+
+}
+
+.micropost-in-map {
+
+  padding: 0;
+
+  .icon {
+    float: left;
+  }
+  .info {
+    float: left;
+  }
+  .user {
+    padding-top: 0;
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
 }
 
 aside {
