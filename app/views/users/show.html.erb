@@ -16,7 +16,7 @@
     <%= render 'static_pages/gmap' %>
 
     <% if @user.microposts.any? %>
-      <h3>Microposts(<%= @user.microposts.count %>)</h3>
+      <h3>救援物資要請一覧(<%= @user.microposts.count %>)</h3>
       <ol class = "microposts">
         <%= render @microposts %>
       </ol>

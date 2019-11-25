@@ -296,6 +296,10 @@ input {
 
 /* microposts */
 
+#follow_form {
+  padding-top: 10px;
+}
+
 .microposts {
   list-style: none;
   padding: 0;
@@ -333,6 +337,9 @@ input {
   padding: 0;
 
   .icon {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     float: left;
   }
   .info {
@@ -341,14 +348,21 @@ input {
   .user {
     padding-top: 0;
   }
+  .content {
+    padding-top: 5px;
+  }
+  .position {
+    padding-top: 7px;
+    font-size: 0.6em;
+    color: $gray-light;
+  }
   .timestamp {
     color: $gray-light;
-    display: block;
   }
   .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
+    // float: left;
+    // margin-right: 10px;
+    // margin-top: 0px;
   }
 }
 
