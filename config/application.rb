@@ -16,10 +16,11 @@ module SampleApp
     # -- all .rb files in that directory are automatically loaded.
 
     config.generators do |g|
-      fixtures: false,
-      view_specs: false,
-      helper_specs: false,
-      routing_specs: false
+      g.test_framework :rspec,
+        fixtures: false,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false
     end
 
     config.action_view.embed_authenticity_token_in_remote_forms = true
