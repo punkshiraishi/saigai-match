@@ -5,9 +5,10 @@ class Micropost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validate :picture_size
-  validates :address, presense: true
   geocoded_by :address
   after_validation :geocode
+  # validates :longitude, presence: { message: "is not acquired" }
+  # validates :latitude, presence: { message: "is not acquired" }
 
   private
 
