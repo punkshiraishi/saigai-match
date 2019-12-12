@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
     expect(user.errors[:password]).to include("can't be blank")
   end
 
-  it "is invalid with short password" do
+  it "is invalid with a short password" do
     user = User.new(password: "aaaaa")
     user.valid?
     expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
