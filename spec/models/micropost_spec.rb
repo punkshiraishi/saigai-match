@@ -10,6 +10,9 @@ RSpec.describe Micropost, type: :model do
     )
   end
 
+
+  
+
   it "is valid with user_id, a content" do
     micropost = @user.microposts.create(
       content: "test",
