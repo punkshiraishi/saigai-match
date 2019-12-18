@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
@@ -5,24 +7,26 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  test "micropost interface" do
+  test 'micropost interface' do
     log_in_as(@user)
     get root_path
     assert_select 'div.pagination'
     assert_select 'input[type=file]'
     # 無効な送信
     assert_no_difference 'Micropost.count' do
-      post microposts_path, params: { micropost: { content: "" } }
+      post microposts_path, params: { micropost: { content: '' } }
     end
     assert_select 'div#error_explanation'
     # 有効な送信
-    content = "Miki and Rinka"
+    content = 'Miki and Rinka'
     picture = fixture_file_upload('test/fixtures/rails.png', 'image/png')
     assert_difference 'Micropost.count', 1 do
       post microposts_path, params: {
         micropost: {
           content: content,
-          picture: picture } }
+          picture: picture
+        }
+      }
     end
     assert_redirected_to root_url
     follow_redirect!
@@ -38,7 +42,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'a', text: 'delete', count: 0
   end
 
-  test "micropost sidebar count" do
+  test 'micropost sidebar count' do
     log_in_as(@user)
     get root_path
     assert_match "#{@user.microposts.count} microposts", response.body
@@ -46,9 +50,9 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     other_user = users(:miki)
     log_in_as(other_user)
     get root_path
-    assert_match "0 microposts", response.body
-    other_user.microposts.create!(content: "A micropost")
+    assert_match '0 microposts', response.body
+    other_user.microposts.create!(content: 'A micropost')
     get root_path
-    assert_match "1 micropost", response.body
+    assert_match '1 micropost', response.body
   end
 end
