@@ -32,6 +32,7 @@ group :development do
   gem 'listen', '3.1.5'
   gem 'rb-readline'
   gem 'rubocop', require: false
+  gem 'rails_best_practices', require: false
   gem 'spring', '2.0.2'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '2.0.1'
