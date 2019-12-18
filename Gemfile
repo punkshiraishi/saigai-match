@@ -39,6 +39,7 @@ group :development do
   gem 'web-console',           '3.5.1'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pre-commit'
 end
 
 group :test do
