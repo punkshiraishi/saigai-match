@@ -33,6 +33,7 @@ group :development do
   gem 'spring-watcher-listen', '2.0.1'
   gem 'rb-readline'
   gem 'spring-commands-rspec'
+  gem 'rubocop', require: false
 end
 
 group :test do
