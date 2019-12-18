@@ -30,3 +30,5 @@
 
 # Ignore dot_env file
 /.env
+
+.DS_Store
